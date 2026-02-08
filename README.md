@@ -1,46 +1,52 @@
 # solidstate-lidar-slam
 
-面向固态面阵激光雷达的 LIO/LVIO/SLAM 统一适配与评测基线仓库，重点覆盖小角度短距雷达与退化场景鲁棒性问题。  
-An adapter and benchmark baseline repository for solid-state LiDAR across LIO/LVIO/SLAM, with emphasis on small-FoV short-range sensing and degenerate-scene robustness.
+[English](#english) | [中文](#chinese)
 
-## 项目简介
+> Adapter and benchmark hub for solid-state LiDAR across LIO/LVIO/SLAM, with robust handling for small-FoV short-range and degenerate scenarios.
 
-本仓库聚焦固态面阵激光雷达在多类里程计与建图算法中的统一接入、配置规范和效果对比。  
-当前阶段仓库框架已建立，适配代码将逐步开放（持续补充模块实现、配置模板与实验记录）。
+<a id="english"></a>
+## English
 
-## 当前已适配算法
+### Overview
+
+This repository targets unified adaptation, evaluation, and engineering integration of solid-state LiDAR for LIO/LVIO/SLAM pipelines.
+
+Current status: the repository skeleton is public. Adaptation code will be released progressively module by module.
+
+### Currently Integrated Algorithms
 
 - FAST-LIO2
 - FAST-LIVO2
-- Coin-LIO
+- COIN-LIO
 - Direct-LIO
 - Voxel-SLAM
 - VoxelMap
 
-| Algorithm | Category (LIO/LVIO/SLAM) | Status | Notes |
-| --- | --- | --- | --- |
-| FAST-LIO2 | LIO | Adapted internally | Open-source module release in progress |
-| FAST-LIVO2 | LVIO | Adapted internally | Open-source module release in progress |
-| Coin-LIO | LIO | Adapted internally | Open-source module release in progress |
-| Direct-LIO | LIO | Adapted internally | Open-source module release in progress |
-| Voxel-SLAM | SLAM | Adapted internally | Open-source module release in progress |
-| VoxelMap | SLAM | Adapted internally | Open-source module release in progress |
+| Algorithm | Category (LIO/LVIO/SLAM) | Status | Upstream | Upstream License |
+| --- | --- | --- | --- | --- |
+| FAST-LIO2 | LIO | Adapted internally, release in progress | [hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO) | GPL-2.0 |
+| FAST-LIVO2 | LVIO | Adapted internally, release in progress | [hku-mars/FAST-LIVO2](https://github.com/hku-mars/FAST-LIVO2) | GPL-2.0 |
+| COIN-LIO | LIO | Adapted internally, release in progress | [ethz-asl/COIN-LIO](https://github.com/ethz-asl/COIN-LIO) | BSD-3-Clause with GPLv2 notice in upstream LICENSE |
+| Direct-LIO | LIO | Adapted internally, release in progress | [vectr-ucla/direct_lidar_inertial_odometry](https://github.com/vectr-ucla/direct_lidar_inertial_odometry) | MIT |
+| Voxel-SLAM | SLAM | Adapted internally, release in progress | [hku-mars/Voxel-SLAM](https://github.com/hku-mars/Voxel-SLAM) | GPL-2.0 |
+| VoxelMap | SLAM | Adapted internally, release in progress | [hku-mars/VoxelMap](https://github.com/hku-mars/VoxelMap) | GPLv2 stated in upstream README |
 
-## 重点问题：小角度短距与退化场景
+### Focus: Small-FoV Short-Range and Degenerate Scenarios
 
-本仓库重点组织以下退化场景方案，入口位于 `docs/degenerate-scenarios/`：
+Degenerate-scene handling is organized under `docs/degenerate-scenarios/`:
 
 - Low-Texture
 - Repetitive Geometry
 - Narrow FoV
 - Dynamic Interference
 
-## 仓库结构
+### Repository Layout
 
 ```text
 .
 |-- README.md
 |-- LICENSE
+|-- THIRD_PARTY_LICENSES.md
 |-- docs/
 |   |-- zh/
 |   |-- en/
@@ -57,61 +63,68 @@ An adapter and benchmark baseline repository for solid-state LiDAR across LIO/LV
 `-- tools/
 ```
 
-## 快速开始
+### License Policy
 
-1. 克隆仓库并进入目录。  
-2. 按算法模块查看后续开放的适配代码与配置说明。  
-3. 使用 `docs/degenerate-scenarios/` 的分类文档选择对应退化场景处理策略。  
+- Repository-level license is `GPL-2.0` (`/LICENSE`) to stay compatible with core upstream GPLv2-based adaptations.
+- Third-party algorithm adaptations must follow the corresponding upstream license terms and attribution requirements.
+- License mapping and notes are tracked in [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
-## 路线图
+### References (Upstream Repositories)
 
-- 发布各算法模块的最小可运行适配代码与配置基线。
-- 补充小角度短距雷达的参数建议与评测协议。
-- 完善退化场景测试集组织和结果对比模板。
+- FAST-LIO2: <https://github.com/hku-mars/FAST_LIO>
+- FAST-LIVO2: <https://github.com/hku-mars/FAST-LIVO2>
+- COIN-LIO: <https://github.com/ethz-asl/COIN-LIO>
+- Direct-LIO: <https://github.com/vectr-ucla/direct_lidar_inertial_odometry>
+- Voxel-SLAM: <https://github.com/hku-mars/Voxel-SLAM>
+- VoxelMap: <https://github.com/hku-mars/VoxelMap>
 
-## 引用与致谢
+### Citation and Acknowledgement
 
-若本仓库对你的研究或工程有帮助，欢迎 Star 并在后续引用信息发布后使用标准格式引用。  
-感谢 FAST-LIO2、FAST-LIVO2、Coin-LIO、Direct-LIO、Voxel-SLAM、VoxelMap 等相关工作与社区贡献。
+If this repository helps your research or engineering, please star this project and cite the upstream works above.
 
-## Overview (EN)
+<a id="chinese"></a>
+## 中文
 
-This repository standardizes integration, configuration conventions, and evaluation for solid-state LiDAR across multiple odometry and mapping pipelines.  
-The repository skeleton is ready, and adapter code will be open-sourced progressively (with module implementations, config templates, and experiment records added iteratively).
+### 项目简介
 
-## Currently Integrated Algorithms
+本仓库聚焦固态面阵激光雷达在 LIO/LVIO/SLAM 算法中的统一适配、评测与工程化集成。
+
+当前阶段：仓库框架已公开，适配代码将按模块逐步开放。
+
+### 当前已适配算法
 
 - FAST-LIO2
 - FAST-LIVO2
-- Coin-LIO
+- COIN-LIO
 - Direct-LIO
 - Voxel-SLAM
 - VoxelMap
 
-| Algorithm | Category (LIO/LVIO/SLAM) | Status | Notes |
-| --- | --- | --- | --- |
-| FAST-LIO2 | LIO | Adapted internally | Open-source module release in progress |
-| FAST-LIVO2 | LVIO | Adapted internally | Open-source module release in progress |
-| Coin-LIO | LIO | Adapted internally | Open-source module release in progress |
-| Direct-LIO | LIO | Adapted internally | Open-source module release in progress |
-| Voxel-SLAM | SLAM | Adapted internally | Open-source module release in progress |
-| VoxelMap | SLAM | Adapted internally | Open-source module release in progress |
+| 算法 | 类别 (LIO/LVIO/SLAM) | 状态 | 上游仓库 | 上游许可证 |
+| --- | --- | --- | --- | --- |
+| FAST-LIO2 | LIO | 已完成适配，代码逐步开放 | [hku-mars/FAST_LIO](https://github.com/hku-mars/FAST_LIO) | GPL-2.0 |
+| FAST-LIVO2 | LVIO | 已完成适配，代码逐步开放 | [hku-mars/FAST-LIVO2](https://github.com/hku-mars/FAST-LIVO2) | GPL-2.0 |
+| COIN-LIO | LIO | 已完成适配，代码逐步开放 | [ethz-asl/COIN-LIO](https://github.com/ethz-asl/COIN-LIO) | BSD-3-Clause（上游 LICENSE 同时包含 GPLv2 说明） |
+| Direct-LIO | LIO | 已完成适配，代码逐步开放 | [vectr-ucla/direct_lidar_inertial_odometry](https://github.com/vectr-ucla/direct_lidar_inertial_odometry) | MIT |
+| Voxel-SLAM | SLAM | 已完成适配，代码逐步开放 | [hku-mars/Voxel-SLAM](https://github.com/hku-mars/Voxel-SLAM) | GPL-2.0 |
+| VoxelMap | SLAM | 已完成适配，代码逐步开放 | [hku-mars/VoxelMap](https://github.com/hku-mars/VoxelMap) | 上游 README 声明 GPLv2 |
 
-## Focus: Small-FoV Short-Range and Degenerate Scenarios
+### 重点问题：小角度短距与退化场景
 
-Degenerate-scene handling is organized under `docs/degenerate-scenarios/` with the following taxonomy:
+退化场景方案入口：`docs/degenerate-scenarios/`。
 
 - Low-Texture
 - Repetitive Geometry
 - Narrow FoV
 - Dynamic Interference
 
-## Repository Layout
+### 仓库结构
 
 ```text
 .
 |-- README.md
 |-- LICENSE
+|-- THIRD_PARTY_LICENSES.md
 |-- docs/
 |   |-- zh/
 |   |-- en/
@@ -128,19 +141,21 @@ Degenerate-scene handling is organized under `docs/degenerate-scenarios/` with t
 `-- tools/
 ```
 
-## Quick Start
+### 许可证策略
 
-1. Clone the repository and enter the project folder.  
-2. Check each algorithm module for progressively released adapter code and configs.  
-3. Use the taxonomy in `docs/degenerate-scenarios/` to select handling strategies for specific degenerate conditions.
+- 仓库级许可证采用 `GPL-2.0`（见 `/LICENSE`），用于与核心 GPLv2 上游适配保持一致。
+- 各算法模块在引入或修改上游代码时，必须遵循对应上游许可证和署名要求。
+- 详细映射见 [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md)。
 
-## Roadmap
+### 开源仓库引用
 
-- Release minimum runnable adapter modules and baseline configs for each algorithm.
-- Add parameter recommendations and evaluation protocols for small-FoV short-range LiDAR.
-- Complete degenerate-scene dataset organization and benchmark reporting templates.
+- FAST-LIO2: <https://github.com/hku-mars/FAST_LIO>
+- FAST-LIVO2: <https://github.com/hku-mars/FAST-LIVO2>
+- COIN-LIO: <https://github.com/ethz-asl/COIN-LIO>
+- Direct-LIO: <https://github.com/vectr-ucla/direct_lidar_inertial_odometry>
+- Voxel-SLAM: <https://github.com/hku-mars/Voxel-SLAM>
+- VoxelMap: <https://github.com/hku-mars/VoxelMap>
 
-## Citation and Acknowledgement
+### 引用与致谢
 
-If this repository is useful for your research or production work, please star it and cite it once citation metadata is published.  
-We acknowledge the upstream works and communities around FAST-LIO2, FAST-LIVO2, Coin-LIO, Direct-LIO, Voxel-SLAM, and VoxelMap.
+如果本仓库对你的研究或工程有帮助，欢迎 Star，并优先引用上述上游工作。
